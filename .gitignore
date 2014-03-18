@@ -1,2 +1,5 @@
 #no .o files
 *.o
+#none of the executables
+teststack
+testtable
