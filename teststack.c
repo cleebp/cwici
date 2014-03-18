@@ -14,20 +14,19 @@
 #include "stack.h"
 
 void simpleTest(stackType);
+void advancedTest(stackType);
 
 int main()
 {
     //initialize
-    stackType stack;
+    stackType stack1;
+    stackType stack2;
     printf("Initializing stack for testing\n\n");
-    initializeStack(&stack);
-    
-    simpleTest(stack);
+    initializeStack(&stack1);
+    initializeStack(&stack2);
 
-    printf("\n\nClearing stack for more tests\n\n");
-    initializeStack(&stack);
-
-    advancedTest(stack);
+    simpleTest(stack1);
+    advancedTest(stack2);
 
     return 0;
 }
@@ -35,7 +34,7 @@ int main()
 void simpleTest(stackType stack)
 {
     printf("==================================\n");
-    printf("== Beggining simple stack tests ==\n");
+    printf("== Beginning simple stack tests ==\n");
     printf("==================================\n");
 
     //push
@@ -74,3 +73,32 @@ void simpleTest(stackType stack)
     printf("Stack contents (should be 7,6,4):\n");
     printStack(&stack);
 }
+
+void advancedTest(stackType stack)
+{
+    printf("\n====================================\n");
+    printf("== Beginning advanced stack tests ==\n");
+    printf("====================================\n");
+
+    int i;
+    //push full stack
+    printf("Pushing numbers 0-19:\n");
+    for(i = 0; i < STACK_SIZE; i++)
+    {
+        printf("pushing %d...\n", i);
+        stackPush(&stack, i);
+    }
+    //pop and compare full stack
+    printf("\nPopping 20 items:\n");
+    int x = 0;
+    for(i = 19; i >= 0; i--)
+    {
+        x = stackPop(&stack);
+        printf("popping item %d...", i);
+        if (x == i)
+            printf("success\n", i);
+        else
+            printf("** ERROR **\n");
+    }
+}
+
