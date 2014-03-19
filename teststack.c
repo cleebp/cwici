@@ -91,7 +91,7 @@ void advancedTest(stackType stack)
     //pop and compare full stack
     printf("\nPopping 20 items:\n");
     int x = 0;
-    for(i = 19; i >= 0; i--)
+    for(i = STACK_SIZE-1; i >= 0; i--)
     {
         x = stackPop(&stack);
         printf("popping item %d...", i);
