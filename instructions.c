@@ -1,33 +1,48 @@
+/**
+ * instructions.c
+ *
+ * Modified with permission from Dr. Fenwick.
+ *
+ * This class implements the instruction data structures,
+ * but not the execution functions.
+ *
+ * @author Brian Clee
+ * @version 3/19/14
+ */
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
 #include "instructions.h"
 #include "table.h"
 #include "stack.h"
 
 #define INSTR_TABLE_SIZE 100
 
-typedef struct {
+//@TODO
+typedef struct 
+{
+
 } instructionType;
 
+//@TODO
 typedef struct
 {
+
 } instructionTable;
 
-// These 4 are "private" making them only accessible via public function
 static instructionTable instrTable;
 static tableType symbolTable;   //for variables and values
 static tableType jumpTable;     //for labels
 static stackType stack;         //for stack operations 
 
-// This one is public so main can use it.
+//called by main yo
 void initialize()
 {
-   instrTable.instructionCount = 0; 
-   initializeTable(&symbolTable);
-   initializeTable(&jumpTable);
-   initializeStack(&stack);
+    instrTable.instructionCount = 0; 
+    initializeTable(&symbolTable);
+    initializeTable(&jumpTable);
+    initializeStack(&stack);
 }
 
 void printSymbolTable()
@@ -35,15 +50,21 @@ void printSymbolTable()
     printTable(&symbolTable);
 }
 
+//@TODO
 int fetchInstruction(int address, char * opcode, char * operand)
 {
     return 1;
 }
 
+//@TODO
 void insertInstruction(int address, char * opcode, char * operand)
 {
+
 }
 
+//this needs to be reformated...
+//perhaps all opcodes can be constant ints then just switch
+//@TODO fix this mess...
 int hasOperand(char * opcode)
 {
     if(strcmp(opcode, "get") == 0){return 1;}
@@ -72,17 +93,19 @@ int hasOperand(char * opcode)
     else { return 1; } // must be a label!!
 }
 
-//**********************************************************************
-// Begin opcode function section.
-//**********************************************************************
 //Functions for various instructions go here. 
-int nop(int pc) { return pc + 1; }
+int nop(int pc) 
+{ 
+    return pc + 1; 
+}
 
-int add(int pc){
+int add(int pc)
+{
     int rop = stackPop(&stack);
     int lop = stackPop(&stack);
+    //why plus 1?
     stackPush(&stack, lop + rop + 1);
     return pc + 1;
 }
 
-
+//@TODO implement all instructions...
