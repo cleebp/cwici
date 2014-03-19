@@ -1,3 +1,16 @@
+/**
+ * table.c
+ *
+ * Modified with permission from Dr. Fenwick.
+ *
+ * This class contains the implementation of the 
+ * symbol table. A table contains entries which are 
+ * key value pairs.
+ *
+ * @author Brian Clee
+ * @version 3/18/14
+ */
+
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -8,16 +21,17 @@ void initializeTable(tableType *Xtable)
     Xtable->numItemsInUse = 0;
 }
 
-/* When storing, it is necessary to check if the variable is already 
-   present in the table.
-   If it is, then rewrite the value as opposed to creating a completely 
-   new entry.
-*/
+/**
+ * When storing, we check if the variable is already present in the table.
+ * If it is, rewrite the value as opposed to creating a new entry.
+ */
 void store(tableType *Xtable, char *key, int val){
     int i;
-    for(i = 0; i < Xtable->numItemsInUse; i++){
+    for(i = 0; i < Xtable->numItemsInUse; i++)
+    {
         //First pass through to see if value is already in the table.
-        if(strcmp(key,Xtable->entry[i].key) == 0){
+        if(strcmp(key,Xtable->entry[i].key) == 0)
+        {
             //If it is, overwrite the value and stop execution.
             Xtable->entry[i].value = val;
             return;
@@ -31,15 +45,15 @@ void store(tableType *Xtable, char *key, int val){
     Xtable->numItemsInUse++;
 }
 
-int retrieve(tableType *Xtable, char *key){
+int retrieve(tableType *Xtable, char *key)
+{
     //Search for entry. If found return value. If not, error occurred.
     int i;
-    for(i = 0; i < Xtable->numItemsInUse; i++){
+    for(i = 0; i < Xtable->numItemsInUse; i++)
+    {
         //First pass through to see if value is already in the table.
-        if(strcmp(key,Xtable->entry[i].key) == 0){
-	  // WE FOUND IT!
-	  return Xtable->entry[i].value;
-	}
+        if(strcmp(key,Xtable->entry[i].key) == 0)
+	        return Xtable->entry[i].value;
     }
     
     printf("ERROR, non-existant key %s in table.\n", key);
