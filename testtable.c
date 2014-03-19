@@ -93,5 +93,31 @@ void simpleTest(tableType table)
 
 void advancedTest(tableType table)
 {
+    printf("\n====================================\n");
+    printf("== Beginning advanced table tests ==\n");
+    printf("====================================\n");
+ 
+    int i, x;
+    char key;
+    //store a full table
+    printf("Storing 0-19 into A-T:\n");
+    for(i = 0; i < TABLE_SIZE; i++)
+    {
+        //ascii capital alphabet starts at 0x41
+        key = 0x41 + i;
+        printf("storing %d into %c...\n", i, key);
+        store(&table, &key, i);
+    }
 
+    //retrieve and compare full table
+    for(i = 0; i < TABLE_SIZE; i++)
+    {
+        //ascii capital alphabet starts at 0x41
+        key = 0x41 + i;
+        x = retrieve(&table, &key);
+        if(x == i)
+            printf("success\n");
+        else
+            printf("** ERROR **\n");
+    }
 }
