@@ -1,25 +1,37 @@
+/**
+ * main.c
+ *
+ * Modified with permission from Dr. Fenwick.
+ *
+ * Obviously main is the major control flow and designator.
+ * Right now main can read wic instructions.
+ *
+ * @author Brian Clee
+ * @version 3/19/14
+ */
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
 #include <time.h>
 #include <stdarg.h>
-
 #include "instructions.h"
 
-// "Private" methods to break up our work here.
 static void readInstructions(FILE * fp);
 static void discardline(FILE * fp);
 static void execute();
 
-int main(int argc, char * argv[]){
+int main(int argc, char * argv[])
+{
     //First things first. Open the input file.
     FILE *fp;
     int i = 0;
-        
-    if (argc != 2 || (fp = fopen(argv[1], "r")) == NULL) {
-      printf("File open failed.\nUsage: %s <input file>\n",argv[0]);
-      exit(1);
+            
+    if (argc != 2 || (fp = fopen(argv[1], "r")) == NULL) 
+    {
+        printf("File open failed.\nUsage: %s <input file>\n",argv[0]);
+        exit(1);
     }
 
     // initialize the symbol table, jump table and stack to 0
@@ -27,8 +39,6 @@ int main(int argc, char * argv[]){
 
     // read the input file and prepare structures
     readInstructions(fp);
-
-    // Close the file.
     fclose(fp); 
 
     // Begin to interpret
@@ -44,10 +54,12 @@ int main(int argc, char * argv[]){
 
 void readInstructions(FILE * fp)
 {
+
 }
 
 void execute()
 {
+
 }
 
 
