@@ -1,3 +1,12 @@
+/**
+ * stack.h
+ *
+ * Modified with permission from code written by Dr. Fenwick.
+ *
+ * @author Brian Clee
+ * @version 3/18/14
+ */
+
 #ifndef STACK_H_
 #define STACK_H_
 
