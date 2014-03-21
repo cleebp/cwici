@@ -18,17 +18,20 @@
 #include "stack.h"
 
 #define INSTR_TABLE_SIZE 100
+#define OP_SIZE 20
 
 //@TODO
 typedef struct 
 {
-
+    char opcode[OP_SIZE];
+    char operand[OP_SIZE];
 } instructionType;
 
 //@TODO
 typedef struct
 {
-
+    int instructionCount;
+    instructionType entry[INSTR_TABLE_SIZE]; 
 } instructionTable;
 
 static instructionTable instrTable;
@@ -103,9 +106,8 @@ int add(int pc)
 {
     int rop = stackPop(&stack);
     int lop = stackPop(&stack);
-    //why plus 1?
-    stackPush(&stack, lop + rop + 1);
+    stackPush(&stack, lop + rop);
     return pc + 1;
 }
 
-//@TODO implement all instructions...
+//@TODO implement all remainign instructions...
