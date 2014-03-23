@@ -67,7 +67,7 @@ void readInstructions(FILE * fp)
             break;
         
         //check if opcode expects an operand and read if it does
-        if(hasOperand(opcode) == 1)
+        if(hasOperand(opcode))
         {
             fscanf(fp, "%s", operand);
         }
@@ -89,9 +89,8 @@ void readInstructions(FILE * fp)
 
 void execute()
 {
-
+    printAll();
 }
-
 
 // discard rest of line (good for comments)
 void discardline(FILE * fp)

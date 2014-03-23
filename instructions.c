@@ -53,6 +53,28 @@ void printSymbolTable()
 }
 
 /**
+ * Print all tables and stacks
+ */
+void printAll()
+{
+    printf("-----------------------\n");
+    printf("-- Instruction Table --\n");
+    printTable(&instrTable);
+    
+    printf("\n------------------\n");
+    printf("-- Symbol Table --\n");
+    printTable(&symbolTable);
+    
+    printf("\n----------------\n");
+    printf("-- Jump Table --\n");
+    printTable(&jumpTable);
+    
+    printf("\n-----------");
+    printf("-- Stack --\n");
+    printStack(&stack);
+}
+
+/**
  * Given an address in the instrTable, take the opcode and operand at 
  * that address and store it into the opcode and operand pointers given.
  */
