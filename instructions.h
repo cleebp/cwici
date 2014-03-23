@@ -19,6 +19,8 @@ void insertInstruction(int address, char * opcode, char * operand);
 int fetchInstruction(int address, char * opcode, char * operand);
 void initialize();
 void printSymbolTable();
+void printAll();
+void printInstrTable();
 
 //interpreter prototypes
 int nop(int);

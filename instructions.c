@@ -52,6 +52,16 @@ void printSymbolTable()
     printTable(&symbolTable);
 }
 
+void printInstrTable(instructionTable *instrTable)
+{
+    int i;
+    for(i = 0; i < instrTable->instructionCount; i++)
+    {
+        printf("Entry %d: %s (opcode) %s (operand)", i, 
+            instrTable->entry[i].opcode, instrTable->entry[i].operand);
+    }
+}
+
 /**
  * Print all tables and stacks
  */
@@ -59,7 +69,7 @@ void printAll()
 {
     printf("-----------------------\n");
     printf("-- Instruction Table --\n");
-    printTable(&instrTable);
+    printInstrTable(&instrTable);
     
     printf("\n------------------\n");
     printf("-- Symbol Table --\n");
