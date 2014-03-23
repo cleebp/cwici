@@ -18,16 +18,17 @@
 #include "stack.h"
 
 #define INSTR_TABLE_SIZE 100
-#define OP_SIZE 20
+#define OPCODE_SIZE 6
+#define OPERAND_SIZE 20
 
-//@TODO
+//instruction entries
 typedef struct 
 {
-    char opcode[OP_SIZE];
-    char operand[OP_SIZE];
+    char opcode[OPCODE_SIZE];
+    char operand[OPERAND_SIZE];
 } instructionType;
 
-//@TODO
+//table for instructions
 typedef struct
 {
     int instructionCount;
@@ -53,20 +54,54 @@ void printSymbolTable()
     printTable(&symbolTable);
 }
 
-//@TODO
+/**
+ * Given an address in the instrTable, take the opcode and operand at 
+ * that address and store it into the opcode and operand pointers given.
+ */
 int fetchInstruction(int address, char * opcode, char * operand)
 {
+    if(address <= instrTable.instructionCount)
+    {
+        memcpy(opcode, instrTable.entry[address].opcode, OPCODE_SIZE);
+        memcpy(operand, instrTable.entry[address].operand, OPERAND_SIZE);
+    }
+    else
+    {
+        printf("Invalid address fetched '%d', halting execution...\n", address);
+        quit(1);
+    }
     return 1;
 }
 
-//@TODO
+/**
+ * Takes an address and opcode/operand and stores the instruction
+ * in the instrTable at that address. If the instr is a label then
+ * a nop is inserted instead and an entry for the label name and given
+ * address is stored in the jump table.
+ */
 void insertInstruction(int address, char * opcode, char * operand)
 {
-
+    if(address <= instrTable.instructionCount)
+    {
+        if(strcmp(*operand, @"label") == 0)
+        {
+            instrTable.entry[address].opcode = @"nop";
+            store(&jumpTable, *opcode, address);
+        }
+        else
+        {
+            instrTable.entry[address].opcode = *opcode;
+            instrTable.entry[address].operand = *operand;
+        }    
+        instrTable.instructionCount++;
+    }
+    else
+    {
+        printf("Invalid addres inserted '%d', halting execution...\n", address);
+        quit(1);
+    }
 }
 
-//this needs to be reformated...
-//perhaps all opcodes can be constant ints then just switch
 //@TODO fix this mess...
 int hasOperand(char * opcode)
 {
@@ -93,7 +128,7 @@ int hasOperand(char * opcode)
     else if (strcmp(opcode, "tstge") == 0){return 0;}
     else if (strcmp(opcode, "halt") == 0){return 0;}
 
-    else { return 1; } // must be a label!!
+    else { return 1; } //label
 }
 
 //Functions for various instructions go here. 
