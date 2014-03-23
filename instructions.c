@@ -18,8 +18,6 @@
 #include "stack.h"
 
 #define INSTR_TABLE_SIZE 100
-#define OPCODE_SIZE 6
-#define OPERAND_SIZE 20
 
 //instruction entries
 typedef struct 
@@ -68,7 +66,7 @@ int fetchInstruction(int address, char * opcode, char * operand)
     else
     {
         printf("Invalid address fetched '%d', halting execution...\n", address);
-        quit(1);
+        exit(1);
     }
     return 1;
 }
@@ -83,22 +81,22 @@ void insertInstruction(int address, char * opcode, char * operand)
 {
     if(address <= instrTable.instructionCount)
     {
-        if(strcmp(*operand, @"label") == 0)
+        if(strcmp(operand, "label") == 0)
         {
-            instrTable.entry[address].opcode = @"nop";
-            store(&jumpTable, *opcode, address);
+            strcpy(instrTable.entry[address].opcode, "nop");
+            store(&jumpTable, opcode, address);
         }
         else
         {
-            instrTable.entry[address].opcode = *opcode;
-            instrTable.entry[address].operand = *operand;
+            strcpy(instrTable.entry[address].opcode, opcode);
+            strcpy(instrTable.entry[address].operand, operand);
         }    
         instrTable.instructionCount++;
     }
     else
     {
         printf("Invalid addres inserted '%d', halting execution...\n", address);
-        quit(1);
+        exit(1);
     }
 }
 
