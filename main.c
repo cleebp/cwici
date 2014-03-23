@@ -27,7 +27,7 @@ int main(int argc, char * argv[])
     //First things first. Open the input file.
     FILE *fp;
     int i = 0;
-            
+    
     if (argc != 2 || (fp = fopen(argv[1], "r")) == NULL) 
     {
         printf("File open failed.\nUsage: %s <input file>\n",argv[0]);
@@ -44,28 +44,18 @@ int main(int argc, char * argv[])
     //begin to interpret
     execute();
 
-    // All done, how about some debugging output...
-    printf("\nSymbol Table\n");
-    printf("------------\n");
-    printSymbolTable();
-
     printf("\nProgram halted\n");
 }
 
 void readInstructions(FILE * fp)
 {
-    int eof, address = 0;
+    int address = 0;
     char *opcode;
     char *operand;
 
     //infinite loop fetch until fscanf returns EOF or -1
-    while(1 > 0)
+    while(fscanf(fp, "%s", opcode) != EOF)
     {
-        //read opcode
-        eof = fscanf(fp, "%s", opcode);
-        if(eof == EOF)
-            break;
-        
         //check if opcode expects an operand and read if it does
         if(hasOperand(opcode))
         {
