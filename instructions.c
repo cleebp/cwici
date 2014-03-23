@@ -129,7 +129,7 @@ int hasOperand(char * opcode)
     else { return 1; } //label
 }
 
-//Functions for various instructions go here. 
+//Functions for instructions 
 int nop(int pc) 
 { 
     return pc + 1; 
@@ -143,4 +143,98 @@ int add(int pc)
     return pc + 1;
 }
 
-//@TODO implement all remainign instructions...
+//@TODO COMPLETE ALL IMPLEMENTATIONS FOR REST OF FILE
+int sub(int pc)
+{
+    return 1;
+}
+
+int mul(int pc)
+{
+    return 1;
+}
+
+int divide(int pc)
+{
+    return 1;
+}
+
+int get(int pc, char *operand)
+{
+    return 1;
+}
+
+int put(int pc, char *operand)
+{
+    return 1;
+}
+
+int push(int pc, char * operand)
+{
+    return 1;
+}
+
+int pop(int pc, char * operand)
+{
+    return 1;
+}
+
+int not(int pc)
+{
+    return 1;
+}
+
+int and(int pc)
+{
+    return 1;
+}
+
+int or(int pc)
+{
+    return 1;
+}
+
+int testeq(int pc)
+{
+    return 1;
+}
+
+int testne(int pc)
+{
+    return 1;
+}
+
+int testlt(int pc)
+{
+    return 1;
+}
+
+int testle(int pc)
+{
+    return 1;
+}
+
+int testgt(int pc)
+{
+    return 1;
+}
+
+int testge(int pc)
+{
+    return 1;
+}
+
+int jump(int pc, char * operand)
+{
+    return 1;
+}
+
+int jf(int pc, char * operand)
+{
+    return 1;
+}
+
+int halt(int pc)
+{
+    return 1;
+}

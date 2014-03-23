@@ -20,14 +20,11 @@ int fetchInstruction(int address, char * opcode, char * operand);
 void initialize();
 void printSymbolTable();
 
-// interpreter prototypes.
+//interpreter prototypes
 int nop(int);
 int add(int);
-
-/*
 int sub(int);
 int mul(int);
-//there is already a "div" function in the standard library.
 int divide(int); 
 int get(int, char * operand);
 int put(int, char * operand);
@@ -45,6 +42,4 @@ int testge(int);
 int jump(int, char * operand);
 int jf(int, char * operand);
 int halt(int);
-*/
-
 #endif
