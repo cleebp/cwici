@@ -34,14 +34,14 @@ int main(int argc, char * argv[])
         exit(1);
     }
 
-    // initialize the symbol table, jump table and stack to 0
-    // method will be in instructions.c
+    //initialize the symbol table, jump table and stack to 0
+    initialize();
 
-    // read the input file and prepare structures
+    //read the input file and prepare structures
     readInstructions(fp);
     fclose(fp); 
 
-    // Begin to interpret
+    //begin to interpret
     execute();
 
     // All done, how about some debugging output...
@@ -54,7 +54,37 @@ int main(int argc, char * argv[])
 
 void readInstructions(FILE * fp)
 {
+    int eof, address = 0;
+    char *opcode;
+    char *operand;
 
+    //infinite loop fetch until fscanf returns EOF or -1
+    while(1 > 0)
+    {
+        //read opcode
+        eof = fscanf(fp, "%s", opcode);
+        if(eof == EOF)
+            break;
+        
+        //check if opcode expects an operand and read if it does
+        if(hasOperand(opcode) == 1)
+        {
+            fscanf(fp, "%s", operand);
+        }
+        else
+        {
+            operand = NULL;
+        }
+
+        //insert aqcuired opcode/operand at address and incr address
+        insertInstruction(address, opcode, operand);
+        address++;
+
+        //discard rest of the current line in case of comments
+        discardline(fp);
+    }
+
+    printf("wic isntructions read/insert has completed...\n");
 }
 
 void execute()
