@@ -1,6 +1,6 @@
 #!/usr/bin/perl
 
-$line1 = "./cwici test1.wic >! test1.out";
+$line1 = "./cwici test1.wic > test1.out";
 print "$line1\n";
 system $line1;
 
