@@ -201,15 +201,32 @@ int divide(int pc)
     return pc + 1;
 }
 
-//@TODO implement...
+//@TODO Figure rest out, see page 76 in text
 int get(int pc, char *operand)
 {
+    //grab int value from user, store into key (operand) value(given)
+    
+    //fgets reads input
+    //strtol converts to int but can find errors easier than atoi
+    
+    int val;
+    char numstring[10];
+    char * endptr;
+    
+
+    val = strtol(numstring, &endptr, 10);
+    if(*endptr != '\n')
+    {
+        printf("Some characters in string are not base 10 digits.");
+    }
     return pc + 1;
 }
 
-//@TODO implement...
 int put(int pc, char *operand)
 {
+    //operand is key of symbol table
+    int val = retrieve(&symbolTable, operand);
+    printf("%d\n", val);
     return pc + 1;
 }
 

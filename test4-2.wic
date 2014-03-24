@@ -7,4 +7,7 @@ pop C
 put A
 put B
 put C
+push A
+pop A
+put A
 halt
