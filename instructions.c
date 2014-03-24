@@ -294,39 +294,63 @@ int or(int pc)
     return pc + 1;
 }
 
-//@TODO implement...
 int testeq(int pc)
 {
+    int op = stackPop(&stack);
+    if(op == 0)
+        stackPush(&stack, 1);
+    else 
+        stackPush(&stack, 0);
     return pc + 1;
 }
 
-//@TODO implement...
 int testne(int pc)
 {
+    int op = stackPop(&stack);
+    if(op != 0)
+        stackPush(&stack, 1);
+    else
+        stackPush(&stack, 0);
     return pc + 1;
 }
 
-//@TODO implement...
 int testlt(int pc)
 {
+    int op = stackPop(&stack);
+    if(op < 0)
+        stackPush(&stack, 1);
+    else
+        stackPush(&stack, 0);
     return pc + 1;
 }
 
-//@TODO implement...
 int testle(int pc)
 {
+    int op = stackPop(&stack);
+    if(op <= 0)
+        stackPush(&stack, 1);
+    else
+        stackPush(&stack, 0);
     return pc + 1;
 }
 
-//@TODO implement...
 int testgt(int pc)
 {
+    int op = stackPop(&stack);
+    if(op > 0)
+        stackPush(&stack, 1);
+    else
+        stackPush(&stack, 0);
     return pc + 1;
 }
 
-//@TODO implement...
 int testge(int pc)
 {
+    int op = stackPop(&stack);
+    if(op >= 0)
+        stackPush(&stack, 1);
+    else
+        stackPush(&stack, 0);
     return pc + 1;
 }
 
