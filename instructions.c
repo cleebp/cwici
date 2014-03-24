@@ -183,21 +183,27 @@ int add(int pc)
     return pc + 1;
 }
 
-//@TODO implement...
 int sub(int pc)
 {
+    int rop = stackPop(&stack);
+    int lop = stackPop(&stack);
+    stackPush(&stack, lop - rop);
     return pc + 1;
 }
 
-//@TODO implement...
 int mul(int pc)
 {
+    int rop = stackPop(&stack);
+    int lop = stackPop(&stack);
+    stackPush(&stack, lop * rop);
     return pc + 1;
 }
 
-//@TODO implement...
 int divide(int pc)
 {
+    int rop = stackPop(&stack);
+    int lop = stackPop(&stack);
+    stackPush(&stack, lop / rop);
     return pc + 1;
 }
 
