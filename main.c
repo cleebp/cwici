@@ -84,7 +84,42 @@ void readInstructions(FILE * fp)
 
 void execute()
 {
+    //part 3 required this
     printInstrTable();    
+
+    //regular execution
+    int pc = 0;
+    char opcode[OPCODE_SIZE];
+    char operand[OPERAND_SIZE];
+    fetchInstruction(pc, opcode, operand);
+    while(strcmp(opcode, "halt") != 0)
+    {
+        //execute that instruction
+        //please excuse my dear awful code
+        if(strcmp(opcode, "get") == 0){pc = get(pc, operand);}
+        else if(strcmp(opcode, "put") == 0){pc = put(pc, operand);}
+        else if(strcmp(opcode, "push") == 0){pc = push(pc, operand);}
+        else if(strcmp(opcode, "pop") == 0){pc = pop(pc, operand);}
+        else if(strcmp(opcode, "j") == 0){pc = jump(pc, operand);}
+        else if(strcmp(opcode, "jf") == 0){pc = jf(pc, operand);}
+        else if (strcmp(opcode, "nop") == 0){pc = nop(pc);}
+        else if (strcmp(opcode, "add") == 0){pc = add(pc);}
+        else if (strcmp(opcode, "sub") == 0){pc = sub(pc);}
+        else if (strcmp(opcode, "mul") == 0){pc = mul(pc);}
+        else if (strcmp(opcode, "div") == 0){pc = divide(pc);}
+        else if (strcmp(opcode, "and") == 0){pc = and(pc);}
+        else if (strcmp(opcode, "not") == 0){pc = not(pc);}
+        else if (strcmp(opcode, "or") == 0){pc = or(pc);}
+        else if (strcmp(opcode, "tsteq") == 0){pc = testeq(pc);}
+        else if (strcmp(opcode, "tstne") == 0){pc = testne(pc);}
+        else if (strcmp(opcode, "tstlt") == 0){pc = testlt(pc);}
+        else if (strcmp(opcode, "tstle") == 0){pc = testle(pc);}
+        else if (strcmp(opcode, "tstgt") == 0){pc = testgt(pc);}
+        else if (strcmp(opcode, "tstge") == 0){pc = testge(pc);}  
+    
+        fetchInstruction(pc, opcode, operand);
+    } 
+    printAll();
 }
 
 // discard rest of line (good for comments)
