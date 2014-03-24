@@ -50,8 +50,8 @@ int main(int argc, char * argv[])
 void readInstructions(FILE * fp)
 {
     int address = 0;
-    char * opcode;
-    char * operand;
+    char opcode[OPCODE_SIZE];
+    char operand[OPERAND_SIZE];
 
     //infinite loop fetch until fscanf returns EOF or -1
     while(fscanf(fp, "%s", opcode) != EOF)
@@ -70,7 +70,7 @@ void readInstructions(FILE * fp)
         }
         else
         {
-            operand = NULL;
+            strcpy(operand, "");
         }
 
         //insert aqcuired opcode/operand at address and incr address
@@ -80,13 +80,16 @@ void readInstructions(FILE * fp)
         //discard rest of the current line in case of comments
         discardline(fp);
     }
+    printInstrTable();
 
-    printf("wic isntructions read/insert has completed...\n");
+    //print instruction table
+    //int i, j;
+    //i = 
 }
 
 void execute()
 {
-    printAll();
+    
 }
 
 // discard rest of line (good for comments)

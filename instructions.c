@@ -52,13 +52,13 @@ void printSymbolTable()
     printTable(&symbolTable);
 }
 
-void printInstrTable(instructionTable *instrTable)
+void printInstrTable()
 {
     int i;
-    for(i = 0; i < instrTable->instructionCount; i++)
+    for(i = 0; i < instrTable.instructionCount; i++)
     {
-        printf("Entry %d: %s (opcode) %s (operand)", i, 
-            instrTable->entry[i].opcode, instrTable->entry[i].operand);
+        printf("%s %s\n", instrTable.entry[i].opcode, 
+            instrTable.entry[i].operand);
     }
 }
 
@@ -98,7 +98,7 @@ int fetchInstruction(int address, char * opcode, char * operand)
     else
     {
         printf("Invalid address fetched '%d', halting execution...\n", address);
-        exit(1);
+        exit(2);
     }
     return 1;
 }
@@ -128,7 +128,7 @@ void insertInstruction(int address, char * opcode, char * operand)
     else
     {
         printf("Invalid addres inserted '%d', halting execution...\n", address);
-        exit(1);
+        exit(2);
     }
 }
 
