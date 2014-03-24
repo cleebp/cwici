@@ -5,3 +5,4 @@ bacon label
 push B
 get B
 l1 label
+halt

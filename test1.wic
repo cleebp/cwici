@@ -2,3 +2,4 @@ get A
 push A
 get B
 push B
+halt
