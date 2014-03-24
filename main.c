@@ -91,9 +91,10 @@ void execute()
     int pc = 0;
     char opcode[OPCODE_SIZE];
     char operand[OPERAND_SIZE];
-    fetchInstruction(pc, opcode, operand);
-    while(strcmp(opcode, "halt") != 0)
+    //fetchInstruction(pc, opcode, operand);
+    while(strcmp(opcode, "halt"))
     {
+        fetchInstruction(pc, opcode, operand);
         //execute that instruction
         //please excuse my dear awful code
         if(strcmp(opcode, "get") == 0){pc = get(pc, operand);}
@@ -117,7 +118,7 @@ void execute()
         else if (strcmp(opcode, "tstgt") == 0){pc = testgt(pc);}
         else if (strcmp(opcode, "tstge") == 0){pc = testge(pc);}  
     
-        fetchInstruction(pc, opcode, operand);
+        //fetchInstruction(pc, opcode, operand);
     } 
     printAll();
 }
