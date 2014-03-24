@@ -21,16 +21,16 @@ test2: cwici test2.wic
 
 part4-1: cwici test4-1.wic
 	./run4-1.pl
-	@echo 
+	@echo "Output and tables/stack from cwici run are above"
 
 part4-2: cwici test4-2.wic
 	./run4-2.pl
-	@echo
+	@echo "Output and tables/stack from cwici run are above"
 
 part4-3: cwici test4-3.wic
 	./run4-3.pl
-	@echo
+	@echo "Output and tables/stack from cwici run are above"
 
 part4-4: cwici test4-4.wic
 	./run4-4.pl
-	@echo
+	@echo "Output and tables/stack from cwici run are above"

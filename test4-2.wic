@@ -1,4 +1,10 @@
 push 5
 pop A
+push 10
+pop B
+push -15
+pop C
 put A
+put B
+put C
 halt

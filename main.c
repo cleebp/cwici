@@ -44,7 +44,7 @@ int main(int argc, char * argv[])
     //begin to interpret
     execute();
 
-    printf("\nProgram halted\n");
+    printf("\nProgram halted\n\n");
 }
 
 void readInstructions(FILE * fp)
@@ -52,6 +52,9 @@ void readInstructions(FILE * fp)
     int address = 0;
     char opcode[OPCODE_SIZE];
     char operand[OPERAND_SIZE];
+
+    printf("\n--------------------\n");
+    printf("-- Program Output --\n\n");
 
     //infinite loop fetch until fscanf returns EOF or -1
     while(fscanf(fp, "%s", opcode) != EOF)
@@ -85,7 +88,7 @@ void readInstructions(FILE * fp)
 void execute()
 {
     //part 3 required this
-    printInstrTable();    
+    //printInstrTable();    
 
     //regular execution
     int pc = 0;

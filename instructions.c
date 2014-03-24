@@ -183,27 +183,31 @@ int add(int pc)
     return pc + 1;
 }
 
-//@TODO COMPLETE ALL IMPLEMENTATIONS FOR REST OF FILE
+//@TODO implement...
 int sub(int pc)
 {
     return pc + 1;
 }
 
+//@TODO implement...
 int mul(int pc)
 {
     return pc + 1;
 }
 
+//@TODO implement...
 int divide(int pc)
 {
     return pc + 1;
 }
 
+//@TODO implement...
 int get(int pc, char *operand)
 {
     return pc + 1;
 }
 
+//@TODO implement...
 int put(int pc, char *operand)
 {
     return pc + 1;
@@ -211,18 +215,19 @@ int put(int pc, char *operand)
 
 int push(int pc, char * operand)
 {
-    /**push digit
-    if(isdigit(operand))
+    int val;
+    //get digit
+    if(isdigit(operand[0]) || isdigit(operand[1]))
     {
-        //atoi(operand)
+        val = atoi(operand);
     }
-    //push var
+    //get var
     else
     {
-        //retrieve from symbol table
+        val = retrieve(&symbolTable, operand);
     }
-    //push
-    */
+    //push val
+    stackPush(&stack, val);
     return pc + 1;
 }
 
@@ -233,56 +238,67 @@ int pop(int pc, char * operand)
     return pc + 1;
 }
 
+//@TODO implement...
 int not(int pc)
 {
     return pc + 1;
 }
 
+//@TODO implement...
 int and(int pc)
 {
     return pc + 1;
 }
 
+//@TODO implement...
 int or(int pc)
 {
     return pc + 1;
 }
 
+//@TODO implement...
 int testeq(int pc)
 {
     return pc + 1;
 }
 
+//@TODO implement...
 int testne(int pc)
 {
     return pc + 1;
 }
 
+//@TODO implement...
 int testlt(int pc)
 {
     return pc + 1;
 }
 
+//@TODO implement...
 int testle(int pc)
 {
     return pc + 1;
 }
 
+//@TODO implement...
 int testgt(int pc)
 {
     return pc + 1;
 }
 
+//@TODO implement...
 int testge(int pc)
 {
     return pc + 1;
 }
 
+//@TODO implement...
 int jump(int pc, char * operand)
 {
     return pc + 1;
 }
 
+//@TODO implement...
 int jf(int pc, char * operand)
 {
     return pc + 1;
@@ -290,5 +306,5 @@ int jf(int pc, char * operand)
 
 int halt(int pc)
 {
-    return pc;
+    return pc + 1;
 }
