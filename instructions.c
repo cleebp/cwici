@@ -75,7 +75,7 @@ void printInstrTable()
  */
 void printAll()
 {
-    printf("-----------------------\n");
+    printf("\n-----------------------\n");
     printf("-- Instruction Table --\n");
     printInstrTable();
     
@@ -87,7 +87,7 @@ void printAll()
     printf("-- Jump Table --\n");
     printTable(&jumpTable);
     
-    printf("\n-----------");
+    printf("\n-----------\n");
     printf("-- Stack --\n");
     printStack(&stack);
 }
@@ -211,7 +211,7 @@ int put(int pc, char *operand)
 
 int push(int pc, char * operand)
 {
-    //push digit
+    /**push digit
     if(isdigit(operand))
     {
         //atoi(operand)
@@ -222,6 +222,7 @@ int push(int pc, char * operand)
         //retrieve from symbol table
     }
     //push
+    */
     return pc + 1;
 }
 

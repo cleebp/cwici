@@ -65,8 +65,15 @@ int retrieve(tableType *Xtable, char *key)
 void printTable(tableType * Xtable)
 {
     int i;
-    for(i = 0; i < Xtable->numItemsInUse; i++)
+    if(Xtable->numItemsInUse == 0)
     {
-        printf("%s = %d\n", Xtable->entry[i].key, Xtable->entry[i].value);
+        printf("Table is empty\n");
+    }
+    else
+    {
+        for(i = 0; i < Xtable->numItemsInUse; i++)
+        {
+            printf("%s = %d\n", Xtable->entry[i].key, Xtable->entry[i].value);
+        }
     }
 }
