@@ -5,4 +5,13 @@ push A
 add
 pop B
 put B
+push 3
+pop A
+push 17
+pop B
+push A
+push B
+add
+pop B
+put B
 halt
