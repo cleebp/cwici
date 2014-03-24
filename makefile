@@ -1,5 +1,6 @@
 default: 
-	@echo "make targets are: stack, table, cwici, test1, test2"
+	@echo "make targets are: stack, table, cwici, test1, test2..."
+	@echo "and the part4 increments: part4-1, part4-2, part4-3, part4-4"
 
 stack: teststack.c stack.h stack.c 
 	gcc teststack.c stack.c -o teststack
@@ -17,3 +18,19 @@ test1: cwici test1.wic
 test2: cwici test2.wic
 	./run2.pl
 	@echo "cat test2.diffs - pass on empty"
+
+part4-1: cwici test4-1.wic
+	./run4-1.pl
+	@echo 
+
+part4-2: cwici test4-2.wic
+	./run4-2.pl
+	@echo
+
+part4-3: cwici test4-3.wic
+	./run4-3.pl
+	@echo
+
+part4-4: cwici test4-4.wic
+	./run4-4.pl
+	@echo
