@@ -1,0 +1,22 @@
+push 5
+pop A
+push A
+push A
+sub
+pop B
+put B
+push 5
+pop A
+push A
+push A
+mul
+pop B
+put B
+push 5
+pop A
+push A
+push A
+div
+pop B
+put B
+halt
