@@ -1,5 +1,5 @@
 default: 
-	@echo "make targets are: stack, table, cwici, test1"
+	@echo "make targets are: stack, table, cwici, test1, test2"
 
 stack: teststack.c stack.h stack.c 
 	gcc teststack.c stack.c -o teststack
