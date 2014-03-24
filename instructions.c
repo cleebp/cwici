@@ -57,8 +57,16 @@ void printInstrTable()
     int i;
     for(i = 0; i < instrTable.instructionCount; i++)
     {
-        printf("%s %s\n", instrTable.entry[i].opcode, 
-            instrTable.entry[i].operand);
+        if(strcmp(instrTable.entry[i].opcode, "label") == 0)
+        {
+            printf("%s %s\n", instrTable.entry[i].operand,
+                instrTable.entry[i].opcode);
+        }
+        else
+        {
+            printf("%s %s\n", instrTable.entry[i].opcode, 
+                instrTable.entry[i].operand);
+        }
     }
 }
 
@@ -69,7 +77,7 @@ void printAll()
 {
     printf("-----------------------\n");
     printf("-- Instruction Table --\n");
-    printInstrTable(&instrTable);
+    printInstrTable();
     
     printf("\n------------------\n");
     printf("-- Symbol Table --\n");
