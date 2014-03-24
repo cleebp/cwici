@@ -50,8 +50,8 @@ int main(int argc, char * argv[])
 void readInstructions(FILE * fp)
 {
     int address = 0;
-    char *opcode;
-    char *operand;
+    char * opcode;
+    char * operand;
 
     //infinite loop fetch until fscanf returns EOF or -1
     while(fscanf(fp, "%s", opcode) != EOF)
@@ -60,6 +60,13 @@ void readInstructions(FILE * fp)
         if(hasOperand(opcode))
         {
             fscanf(fp, "%s", operand);
+
+            if(!strcmp(operand, "label"))
+            {
+                //flip opcode and operand if label
+                strcpy(operand, opcode);
+                strcpy(opcode, "label");
+            }
         }
         else
         {
