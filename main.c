@@ -80,16 +80,11 @@ void readInstructions(FILE * fp)
         //discard rest of the current line in case of comments
         discardline(fp);
     }
-    printInstrTable();
-
-    //print instruction table
-    //int i, j;
-    //i = 
 }
 
 void execute()
 {
-    
+    printInstrTable();    
 }
 
 // discard rest of line (good for comments)
