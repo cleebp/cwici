@@ -34,3 +34,7 @@ part4-3: cwici test4-3.wic
 part4-4: cwici test4-4.wic
 	./run4-4.pl
 	@echo "Output and tables/stack from cwici run are above"
+
+part4-5: cwici test4-5.wic
+	./run4-5.pl
+	@echo "Output and tables/stack from cwici run are above"

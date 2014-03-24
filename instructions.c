@@ -199,10 +199,17 @@ int mul(int pc)
     return pc + 1;
 }
 
+//no dividing by negatives now
 int divide(int pc)
 {
     int rop = stackPop(&stack);
     int lop = stackPop(&stack);
+    if(rop == 0)
+    {
+        printf("HEY NO DIVIDING BY A NEGATIVE SILLY\n");
+        printf("obviously halting execution...\n");
+        exit(1);
+    }
     stackPush(&stack, lop / rop);
     return pc + 1;
 }
@@ -261,21 +268,29 @@ int pop(int pc, char * operand)
     return pc + 1;
 }
 
-//@TODO implement...
+//logical not bitwise
 int not(int pc)
 {
+    int op = stackPop(&stack);
+    stackPush(&stack, !op); 
     return pc + 1;
 }
 
-//@TODO implement...
+//logical not bitwise
 int and(int pc)
 {
+    int rop = stackPop(&stack);
+    int lop = stackPop(&stack);
+    stackPush(&stack, lop && rop);
     return pc + 1;
 }
 
-//@TODO implement...
+//logical not bitwise
 int or(int pc)
 {
+    int rop = stackPop(&stack);
+    int lop = stackPop(&stack);
+    stackPush(&stack, lop || rop);
     return pc + 1;
 }
 
