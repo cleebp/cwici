@@ -1,5 +1,5 @@
 default: 
-	@echo "make targets are: stack, table, cwici, test"
+	@echo "make targets are: stack, table, cwici, test1"
 
 stack: teststack.c stack.h stack.c 
 	gcc teststack.c stack.c -o teststack
@@ -10,7 +10,6 @@ table: testtable.c table.h table.c
 cwici: main.c stack.c stack.h table.c table.h instructions.c instructions.h
 	gcc -g main.c stack.c table.c instructions.c -o cwici
 
-test: cwici testfile.wic
-	cwici testfile.wic >! testfile.out
-	diff -b -B testfile.wic testfile.wic >! testfile.diffs
-	@echo "less testfile.diffs - pass on empty"
+test1: cwici test1.wic instructions.c instructions.h
+	./run1.pl
+	@echo "cat test1.diffs - pass on empty"
