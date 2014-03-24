@@ -100,8 +100,8 @@ int fetchInstruction(int address, char * opcode, char * operand)
 {
     if(address <= instrTable.instructionCount)
     {
-        memcpy(opcode, instrTable.entry[address].opcode, OPCODE_SIZE);
-        memcpy(operand, instrTable.entry[address].operand, OPERAND_SIZE);
+        memcpy(opcode, instrTable.entry[address].opcode, OPCODE_SIZE+1);
+        memcpy(operand, instrTable.entry[address].operand, OPERAND_SIZE+1);
     }
     else
     {
@@ -186,95 +186,108 @@ int add(int pc)
 //@TODO COMPLETE ALL IMPLEMENTATIONS FOR REST OF FILE
 int sub(int pc)
 {
-    return 1;
+    return pc + 1;
 }
 
 int mul(int pc)
 {
-    return 1;
+    return pc + 1;
 }
 
 int divide(int pc)
 {
-    return 1;
+    return pc + 1;
 }
 
 int get(int pc, char *operand)
 {
-    return 1;
+    return pc + 1;
 }
 
 int put(int pc, char *operand)
 {
-    return 1;
+    return pc + 1;
 }
 
 int push(int pc, char * operand)
 {
-    return 1;
+    //push digit
+    if(isdigit(operand))
+    {
+        //atoi(operand)
+    }
+    //push var
+    else
+    {
+        //retrieve from symbol table
+    }
+    //push
+    return pc + 1;
 }
 
 int pop(int pc, char * operand)
 {
-    return 1;
+    int var = stackPop(&stack);
+    store(&symbolTable, operand, var);
+    return pc + 1;
 }
 
 int not(int pc)
 {
-    return 1;
+    return pc + 1;
 }
 
 int and(int pc)
 {
-    return 1;
+    return pc + 1;
 }
 
 int or(int pc)
 {
-    return 1;
+    return pc + 1;
 }
 
 int testeq(int pc)
 {
-    return 1;
+    return pc + 1;
 }
 
 int testne(int pc)
 {
-    return 1;
+    return pc + 1;
 }
 
 int testlt(int pc)
 {
-    return 1;
+    return pc + 1;
 }
 
 int testle(int pc)
 {
-    return 1;
+    return pc + 1;
 }
 
 int testgt(int pc)
 {
-    return 1;
+    return pc + 1;
 }
 
 int testge(int pc)
 {
-    return 1;
+    return pc + 1;
 }
 
 int jump(int pc, char * operand)
 {
-    return 1;
+    return pc + 1;
 }
 
 int jf(int pc, char * operand)
 {
-    return 1;
+    return pc + 1;
 }
 
 int halt(int pc)
 {
-    return 1;
+    return pc;
 }
