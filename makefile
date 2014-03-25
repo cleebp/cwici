@@ -1,6 +1,7 @@
 default: 
 	@echo "make targets are: stack, table, cwici, test1, test2..."
-	@echo "and the part4 increments: part4-1, part4-2, part4-3, part4-4"
+	@echo "and the part4 increments: part4-1, part4-2, part4-3, part4-4,"
+	@echo "part4-5, part4-6, part4-7, part4-8, max, numbin"
 
 stack: teststack.c stack.h stack.c 
 	gcc teststack.c stack.c -o teststack
@@ -45,4 +46,16 @@ part4-6: cwici test4-6.wic
 
 part4-7: cwici test4-7.wic
 	./run4-7.pl
+	@echo "Output and tables/stack from cwici run are above"
+
+part4-8: cwici test4-8.wic
+	./run4-8.pl
+	@echo "Output and tables/stack from cwici run are above"
+
+max: cwici max.wic
+	./runMax.pl
+	@echo "Output and tables/stack from cwici run are above"
+
+numbin: cwici numbin.wic
+	./runBin.pl
 	@echo "Output and tables/stack from cwici run are above"

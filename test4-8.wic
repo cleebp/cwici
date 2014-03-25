@@ -1,0 +1,9 @@
+push 5
+push 10
+pop A
+pop B
+put A
+put B
+l1 label
+l2 label
+halt

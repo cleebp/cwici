@@ -121,10 +121,10 @@ void insertInstruction(int address, char * opcode, char * operand)
 {
     if(address <= instrTable.instructionCount)
     {
-        if(strcmp(operand, "label") == 0)
+        if(strcmp(opcode, "label") == 0)
         {
             strcpy(instrTable.entry[address].opcode, "nop");
-            store(&jumpTable, opcode, address);
+            store(&jumpTable, operand, address);
         }
         else
         {
@@ -206,7 +206,7 @@ int divide(int pc)
     int lop = stackPop(&stack);
     if(rop == 0)
     {
-        printf("HEY NO DIVIDING BY A NEGATIVE SILLY\n");
+        printf("HEY NO DIVIDING BY A ZERO SILLY\n");
         printf("obviously halting execution...\n");
         exit(1);
     }
@@ -384,16 +384,21 @@ int testge(int pc)
     return pc + 1;
 }
 
-//@TODO implement...
+//unconditional
 int jump(int pc, char * operand)
 {
-    return pc + 1;
+    int newpc = retrieve(&jumpTable, operand);
+    return newpc;
 }
 
-//@TODO implement...
+//conditional jump on false
 int jf(int pc, char * operand)
 {
-    return pc + 1;
+    int val = stackPop(&stack);
+    if(val == 1)
+        return pc + 1;
+    else
+        return retrieve(&jumpTable, operand);
 }
 
 int halt(int pc)
