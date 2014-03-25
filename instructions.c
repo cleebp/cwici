@@ -140,7 +140,6 @@ void insertInstruction(int address, char * opcode, char * operand)
     }
 }
 
-//@TODO fix this mess...
 int hasOperand(char * opcode)
 {
     if(strcmp(opcode, "get") == 0){return 1;}
@@ -199,7 +198,6 @@ int mul(int pc)
     return pc + 1;
 }
 
-//no dividing by negatives now
 int divide(int pc)
 {
     int rop = stackPop(&stack);
@@ -214,7 +212,6 @@ int divide(int pc)
     return pc + 1;
 }
 
-//@TODO fix new line detection at end, commented out
 int get(int pc, char *operand)
 {
     int val;
