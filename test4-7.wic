@@ -1,0 +1,9 @@
+get A
+get B
+push A
+push B
+pop B
+pop A
+put A
+put B
+halt

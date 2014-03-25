@@ -214,24 +214,54 @@ int divide(int pc)
     return pc + 1;
 }
 
-//@TODO Figure rest out, see page 76 in text
+//@TODO fix new line detection at end, commented out
 int get(int pc, char *operand)
 {
-    //grab int value from user, store into key (operand) value(given)
-    
-    //fgets reads input
-    //strtol converts to int but can find errors easier than atoi
-    
     int val;
-    char numstring[10];
-    char * endptr;
-    
+    int valid = -1;
+    char numstring[20];
 
-    val = strtol(numstring, &endptr, 10);
+    while(valid < 0)
+    {
+        int i = 0;
+        printf("Enter %s > ", operand);
+        fgets(numstring, 20, stdin);
+        if(numstring[0] == '-' || isdigit(numstring[0]))
+        {
+            if(numstring[0] == '-')
+                i = 1;
+            //make sure every char given is a digit
+            for(i; i < strlen(numstring)-1; i++)
+            {
+                if(!isdigit(numstring[i]))
+                {
+                    printf("Error, please input a number\n");
+                    valid = -1;
+                    break;
+                }
+                else
+                    valid = 1;
+            }
+        }
+        else
+        {
+            printf("Error, please input a number\n");
+            valid = -1;
+        }
+    }
+
+    /**val = strtol(numstring, &endptr, 10);
+    char * endptr;
     if(*endptr != '\n')
     {
-        printf("Some characters in string are not base 10 digits.");
-    }
+        while(fgetc(stdin) != '\n')
+        {
+
+        }
+    }*/
+
+    val = atoi(numstring);
+    store(&symbolTable, operand, val);
     return pc + 1;
 }
 
