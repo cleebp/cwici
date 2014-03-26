@@ -1,5 +1,5 @@
 default: 
-	@echo "make targets are: stack, table, cwici, test1, test2..."
+	@echo "make targets are: stack, table, cwici, runAll, test1, test2..."
 	@echo "and the part4 increments: part4-1, part4-2, part4-3, part4-4,"
 	@echo "part4-5, part4-6, part4-7, part4-8, max, numbin"
 
@@ -13,8 +13,8 @@ cwici: main.c stack.c stack.h table.c table.h instructions.c instructions.h
 	gcc -g main.c stack.c table.c instructions.c -o cwici
 
 runAll: cwici
-	./runAll.pl
-	@echo "just ran all the tests..."
+	./tests/runAll.pl
+	@echo "Output and tables/stack from all cwici runs are above"
 
 test1: cwici ./tests/test1.wic
 	./tests/run1.pl
