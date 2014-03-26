@@ -12,13 +12,17 @@ table: testtable.c table.h table.c
 cwici: main.c stack.c stack.h table.c table.h instructions.c instructions.h
 	gcc -g main.c stack.c table.c instructions.c -o cwici
 
-test1: cwici test1.wic
-	./run1.pl
-	@echo "cat test1.diffs - pass on empty"
+runAll: cwici
+	./runAll.pl
+	@echo "just ran all the tests..."
 
-test2: cwici test2.wic
-	./run2.pl
-	@echo "cat test2.diffs - pass on empty"
+test1: cwici ./tests/test1.wic
+	./tests/run1.pl
+	@echo "Output and tables/stack from cwici run are above"
+
+test2: cwici ./tests/test2.wic
+	./tests/run2.pl
+	@echo "Output and tables/stack from cwici run are above"
 
 part4-1: cwici test4-1.wic
 	./run4-1.pl

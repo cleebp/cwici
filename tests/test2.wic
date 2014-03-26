@@ -2,7 +2,7 @@ get A
 push A
 l2 label
 bacon label
-push B
 get B
+push B
 l1 label
 halt
