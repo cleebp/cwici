@@ -1,5 +1,5 @@
 #!/usr/bin/perl
 
-$line1 = "./cwici test4-6.wic";
+$line1 = "./cwici ./tests/test4-6.wic";
 print "$line1\n";
 system $line1;

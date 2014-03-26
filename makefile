@@ -24,42 +24,42 @@ test2: cwici ./tests/test2.wic
 	./tests/run2.pl
 	@echo "Output and tables/stack from cwici run are above"
 
-part4-1: cwici test4-1.wic
-	./run4-1.pl
+part4-1: cwici ./tests/test4-1.wic
+	./tests/run4-1.pl
 	@echo "Output and tables/stack from cwici run are above"
 
-part4-2: cwici test4-2.wic
-	./run4-2.pl
+part4-2: cwici ./tests/test4-2.wic
+	./tests/run4-2.pl
 	@echo "Output and tables/stack from cwici run are above"
 
-part4-3: cwici test4-3.wic
-	./run4-3.pl
+part4-3: cwici ./tests/test4-3.wic
+	./tests/run4-3.pl
 	@echo "Output and tables/stack from cwici run are above"
 
-part4-4: cwici test4-4.wic
-	./run4-4.pl
+part4-4: cwici ./tests/test4-4.wic
+	./tests/run4-4.pl
 	@echo "Output and tables/stack from cwici run are above"
 
-part4-5: cwici test4-5.wic
-	./run4-5.pl
+part4-5: cwici ./tests/test4-5.wic
+	./tests/run4-5.pl
 	@echo "Output and tables/stack from cwici run are above"
 
-part4-6: cwici test4-6.wic
-	./run4-6.pl
+part4-6: cwici ./tests/test4-6.wic
+	./tests/run4-6.pl
 	@echo "Output and tables/stack from cwici run are above"
 
-part4-7: cwici test4-7.wic
-	./run4-7.pl
+part4-7: cwici ./tests/test4-7.wic
+	./tests/run4-7.pl
 	@echo "Output and tables/stack from cwici run are above"
 
-part4-8: cwici test4-8.wic
-	./run4-8.pl
+part4-8: cwici ./tests/test4-8.wic
+	./tests/run4-8.pl
 	@echo "Output and tables/stack from cwici run are above"
 
-max: cwici max.wic
-	./runMax.pl
+max: cwici ./tests/max.wic
+	./tests/runMax.pl
 	@echo "Output and tables/stack from cwici run are above"
 
-numbin: cwici numbin.wic
-	./runBin.pl
+numbin: cwici ./tests/numbin.wic
+	./tests/runBin.pl
 	@echo "Output and tables/stack from cwici run are above"
